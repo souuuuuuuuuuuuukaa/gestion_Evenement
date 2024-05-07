@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Evenement_App</string>
+    <string name="menu">menu</string>
+    <string name="desription" />
+    <string name="budget">budget</string>
+    <string name="evenement">Evenement</string>
+    <string name="profil">profil</string>
+    <string name="home">Home</string>
+    <string name="accueil">Accueil</string>
+    <string name="recherche">Recherche</string>
+    <string name="messages">Messages</string>
+    <string name="notifications">Notifications</string>
+    <string name="invite">invite</string>
+    <string name="evenements">Evenements</string>
+    <string name="calendrier">calendrier</string>
+    <string name="logout">Logout</string>
+    <string name="event_name">Event Name</string>
+    <string name="cr_er">Créer</string>
+    <string name="bedget">Bedget...</string>
+    <string name="login">Login</string>
+</resources>

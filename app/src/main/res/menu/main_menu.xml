@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/baseline_home_24"
+            android:title="@string/accueil" />
+
+        <item android:id="@+id/recherche"
+            android:icon="@drawable/baseline_search_24"
+            android:title="@string/recherche" />
+
+        <item android:id="@+id/Messages"
+            android:icon="@drawable/baseline_comment"
+            android:title="@string/messages"
+            />
+        <item android:id="@+id/notification"
+        android:icon="@drawable/baseline_notifications_24"
+        android:title="@string/notifications"
+        />
+    <item android:id="@+id/invite"
+        android:icon="@drawable/baseline_group_add_24"
+        android:title="@string/invite"
+        />
+    <item android:id="@+id/Evenements"
+        android:icon="@drawable/baseline_star_border_24"
+        android:title="@string/evenements" />
+    <item android:id="@+id/Budget"
+        android:icon="@drawable/bedget"
+        android:title="@string/budget" />
+    <item
+        android:id="@+id/calendrier"
+        android:icon="@drawable/baseline_edit_calendar_24"
+        android:title="@string/calendrier" />
+
+    <item android:id="@+id/logout"
+        android:icon="@drawable/logout"
+        android:title="@string/logout" />
+    </group>
+
+
+</menu>
