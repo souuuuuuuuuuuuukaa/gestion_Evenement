@@ -1,18 +1,19 @@
 package com.example.evenement_app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class formulaire extends AppCompatActivity {
-BottomNavigationView bottomNavigationView;
+public class Budget extends AppCompatActivity {
+    BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formulaire);
+        setContentView(R.layout.activity_budget);
         bottomNavigationView=findViewById(R.id.bottom_nav);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();

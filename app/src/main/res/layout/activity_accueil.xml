@@ -15,17 +15,31 @@ tools:context=".Accueil">
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:menu="@menu/main_menu"
-        app:title="Home" />
-</com.google.android.material.appbar.AppBarLayout>
+        android:background="#65FFFFFF">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/imageback"
+            app:tint="@color/black" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Acceuil"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="150dp" />
+    </com.google.android.material.appbar.MaterialToolbar>
+</com.google.android.material.appbar.AppBarLayout>
 <FrameLayout
     android:id="@+id/container_view"
     android:layout_width="match_parent"
     android:layout_height="617dp"
     android:layout_above="@+id/bottom_nav"
     android:layout_below="@id/appBar"
-    android:layout_marginTop="-13dp"
+    android:layout_marginTop="0dp"
     android:layout_marginBottom="0dp">
 
     <EditText

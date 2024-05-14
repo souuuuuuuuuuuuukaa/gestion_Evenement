@@ -12,29 +12,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBar"
             android:layout_width="match_parent"
-            android:layout_height="208dp">
+            android:layout_height="210dp">
+
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
                 style="@style/Widget.MaterialComponents.Toolbar.Primary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                app:menu="@menu/main_menu"
-                android:backgroundTint="@color/white"
-                app:titleTextColor="@color/black"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                app:title="Invités" />
+                android:backgroundTint="@color/white"
+                android:textStyle="bold"
+                app:menu="@menu/main_menu"
+                app:title="Invités"
+                app:titleTextColor="@color/black" />
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="146dp"
-                android:src="@drawable/logo"
-                android:scaleY="1.5"
                 android:scaleX="3"
-                />
+                android:scaleY="1.5"
+                android:src="@drawable/logo" />
         </com.google.android.material.appbar.AppBarLayout>
         <LinearLayout
             android:layout_width="match_parent"
