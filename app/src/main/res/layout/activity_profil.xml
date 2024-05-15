@@ -86,12 +86,14 @@ tools:context=".Profil">
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
-        android:layout_height="79dp"
-        android:layout_marginTop="69dp"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"
-        app:labelVisibilityMode="selected"
+        android:layout_height="78dp"
+        android:layout_alignParentBottom="true"
         app:menu="@menu/buttom_menu"
-       />
+        tools:ignore="MissingConstraints"
+        android:layout_marginTop="80dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="605dp">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </LinearLayout>

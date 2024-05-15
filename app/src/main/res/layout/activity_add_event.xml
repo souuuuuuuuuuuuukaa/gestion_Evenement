@@ -45,7 +45,7 @@
         <ImageView
             android:id="@+id/logo"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="245dp"
             android:contentDescription="@string/desription"
             android:scaleX="1.8"
             android:scaleY="1.5"
@@ -153,16 +153,20 @@
     </LinearLayout>
     <Space
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="20dp" />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="78dp"
-        android:layout_marginTop="18dp"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"
-        app:labelVisibilityMode="selected"
-        app:menu="@menu/buttom_menu" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="80dp"
+        app:menu="@menu/buttom_menu"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="605dp"
+        >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
 </LinearLayout>

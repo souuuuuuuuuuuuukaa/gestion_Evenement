@@ -20,14 +20,13 @@ tools:context=".Accueil">
             android:id="@+id/imageBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/imageback"
             app:tint="@color/black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Acceuil"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_marginHorizontal="150dp" />
@@ -81,16 +80,16 @@ tools:context=".Accueil">
 
 </FrameLayout>
 
-<com.google.android.material.bottomnavigation.BottomNavigationView
-    android:id="@+id/bottom_nav"
-    android:layout_width="match_parent"
-    android:layout_height="66dp"
-    android:layout_alignParentBottom="true"
-    app:menu="@menu/buttom_menu"
-    tools:ignore="MissingConstraints"
-    tools:layout_editor_absoluteX="16dp"
-    tools:layout_editor_absoluteY="605dp">
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/buttom_menu"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="605dp">
 
-</com.google.android.material.bottomnavigation.BottomNavigationView>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </RelativeLayout>

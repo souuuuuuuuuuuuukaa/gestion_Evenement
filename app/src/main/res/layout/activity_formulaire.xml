@@ -24,7 +24,6 @@ tools:context=".formulaire">
             android:id="@+id/imageBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/imageback"
             app:tint="@color/black" />
 
         <TextView
@@ -121,19 +120,16 @@ tools:context=".formulaire">
 
 </FrameLayout>
 
-<com.google.android.material.bottomnavigation.BottomNavigationView
-    android:id="@+id/bottom_nav"
-    android:layout_width="match_parent"
-    android:layout_height="66dp"
-    android:layout_alignParentBottom="true"
-    android:background="@color/white"
-    app:itemIconTint="@color/black"
-    app:itemTextColor="@color/black"
-    app:menu="@menu/buttom_menu"
-    tools:ignore="MissingConstraints"
-    tools:layout_editor_absoluteX="16dp"
-    tools:layout_editor_absoluteY="605dp">
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/buttom_menu"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="605dp">
 
-</com.google.android.material.bottomnavigation.BottomNavigationView>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </RelativeLayout>

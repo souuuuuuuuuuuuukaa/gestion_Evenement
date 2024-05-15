@@ -7,15 +7,17 @@ import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Profil extends AppCompatActivity {
-BottomNavigationView bottomNavigationView;
+public class Calendrier extends AppCompatActivity {
+    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profil);
+        setContentView(R.layout.activity_calendrier2);
 
         bottomNavigationView=findViewById(R.id.bottom_nav);
-        bottomNavigationView.setSelectedItemId(R.id.nav_profil);
+
+        bottomNavigationView.setSelectedItemId(R.id.nav_Menu_y);
+
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.nav_ajouter_event) {
