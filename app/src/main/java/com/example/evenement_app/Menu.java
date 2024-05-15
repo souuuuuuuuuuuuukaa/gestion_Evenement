@@ -112,6 +112,12 @@ public class Menu extends AppCompatActivity {
                 finish();
                 return true;
                 }
+                if (itemId == R.id.formulair){
+                    Intent hometIntent = new Intent(getApplicationContext(), formulaire.class);
+                    startActivity(hometIntent);
+                    finish();
+                    return true;
+                }
                 if (itemId == R.id.logout){
                 Intent hometIntent = new Intent(getApplicationContext(), Login.class);
                 startActivity(hometIntent);
