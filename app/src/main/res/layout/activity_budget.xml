@@ -107,7 +107,8 @@
                 android:text="Depenses     "
                 android:textSize="35dp"
                 android:textStyle="bold"/>
-            <TextView
+            <EditText
+                android:id="@+id/depenses"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="$455,000"
