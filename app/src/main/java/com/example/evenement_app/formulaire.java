@@ -54,7 +54,6 @@ BottomNavigationView bottomNavigationView;
 
 
 
-
         //initializer views avec leurs XML
         NomEtPrenom = findViewById(R.id.NomEtPrenom);
 
@@ -68,6 +67,9 @@ BottomNavigationView bottomNavigationView;
         db = FirebaseFirestore.getInstance();
 
         //click button to upload data
+
+
+        //répondre par oui
         oui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,21 +87,23 @@ BottomNavigationView bottomNavigationView;
                 //show progress bar when user click save button
                 pd.show();
                 //random id for each data to be stored
-                String id = UUID.randomUUID().toString();
-
+               // String id = UUID.randomUUID().toString();
                 Map<String,Object> doc=new HashMap<>();
-                doc.put("id",id);//id of data
+              //  doc.put("id",id);//id of data
                 doc.put("invite",invite);
 
 
                 //add this data
-                db.collection("invites").document(id).set(doc)
+                db.collection("invites").document(invite).set(doc)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 //called when data added successfully
                                 pd.dismiss();
                                 Toast.makeText(formulaire.this,"uploaded...",Toast.LENGTH_SHORT).show();
+                                Intent hometIntent = new Intent(getApplicationContext(), AddEvent.class);
+                                startActivity(hometIntent);
+                                finish();
 
                             }
                         })
@@ -112,10 +116,12 @@ BottomNavigationView bottomNavigationView;
                                 Toast.makeText(formulaire.this,e.getMessage(),Toast.LENGTH_SHORT).show();
 
 
+
                             }
                         });
             }
         });
+        //répondre par non
         non.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -125,30 +131,6 @@ BottomNavigationView bottomNavigationView;
                 finish();
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

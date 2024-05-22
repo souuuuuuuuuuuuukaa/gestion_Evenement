@@ -2,10 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-
-
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Evenement_App"
         tools:targetApi="31">
+        <activity
+            android:name=".ListEvent"
+            android:exported="false" />
         <activity
             android:name=".Budget1"
             android:exported="false" />
@@ -42,7 +42,7 @@
             android:name=".Profil"
             android:exported="false" />
         <activity
-            android:name=".Accueil"
+            android:name=".SplashScreen"
             android:exported="false" />
         <activity
             android:name=".AddEvent"
@@ -57,7 +57,7 @@
             android:name=".Menu"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".Accueil"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

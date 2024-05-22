@@ -16,11 +16,7 @@ tools:context=".Accueil">
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#65FFFFFF">
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:tint="@color/black" />
+
 
         <TextView
             android:layout_width="wrap_content"

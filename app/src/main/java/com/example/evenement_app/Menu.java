@@ -53,6 +53,7 @@ public class Menu extends AppCompatActivity {
                 finish();
                 return true;
             }
+
             return false;
         });
 
@@ -113,10 +114,16 @@ public class Menu extends AppCompatActivity {
                 return true;
                 }
                 if (itemId == R.id.formulair){
-                    Intent hometIntent = new Intent(getApplicationContext(), formulaire.class);
-                    startActivity(hometIntent);
-                    finish();
-                    return true;
+                Intent hometIntent = new Intent(getApplicationContext(), formulaire.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+                }
+                 if (itemId == R.id.ListEvent) {
+                 Intent hometIntent = new Intent(getApplicationContext(), ListEvent.class);
+                 startActivity(hometIntent);
+                 finish();
+                 return true;
                 }
                 if (itemId == R.id.logout){
                 Intent hometIntent = new Intent(getApplicationContext(), Login.class);

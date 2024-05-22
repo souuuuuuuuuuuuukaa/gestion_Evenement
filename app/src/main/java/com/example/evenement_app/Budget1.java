@@ -23,12 +23,6 @@ import java.util.UUID;
 
 public class Budget1 extends AppCompatActivity {
 
-
-
-
-
-
-
 /*
 
     //Progress Dialog
@@ -42,22 +36,12 @@ public class Budget1 extends AppCompatActivity {
 */
 
 
-
-
-
-
     BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_budget1);
-
-
-
-
-
-
 
 
 /*

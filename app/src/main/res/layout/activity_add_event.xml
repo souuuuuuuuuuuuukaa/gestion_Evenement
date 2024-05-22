@@ -14,11 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#65FFFFFF">
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:tint="@color/black" />
+
 
         <TextView
             android:layout_width="match_parent"
@@ -67,7 +63,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/EventName"
                 android:layout_width="match_parent"
-                android:layout_height="46dp"
+                android:layout_height="54dp"
                 android:drawablePadding="5dp"
                 android:inputType="text" />
 
@@ -139,7 +135,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Bedget"
                 android:layout_width="match_parent"
-                android:layout_height="47dp"
+                android:layout_height="52dp"
                 android:drawablePadding="5dp"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>

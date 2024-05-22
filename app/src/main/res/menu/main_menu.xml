@@ -35,6 +35,9 @@
     <item android:id="@+id/formulair"
         android:icon="@drawable/formulaire"
         android:title="@string/formulaire" />
+    <item android:id="@+id/ListEvent"
+        android:icon="@drawable/list"
+        android:title="@string/list" />
 
     <item android:id="@+id/logout"
         android:icon="@drawable/logout"

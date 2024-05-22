@@ -1,6 +1,7 @@
 package com.example.evenement_app;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
@@ -17,7 +18,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -30,35 +34,22 @@ import java.util.UUID;
 public class AddEvent extends AppCompatActivity {
 
     //Progress Dialog
-    ProgressDialog pd;
+    ProgressDialog progressDialog;
     //views
     EditText EventName,DateEvent,EventTime,Bedget;
     Button button;
 
     //Firestore instance
-    FirebaseFirestore db;
-
-
-
-
-
-
-
-
-
-
-
-
+    FirebaseFirestore firebaseFirestore;
 
     BottomNavigationView bottomNavigationView;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event);
-
-
 
 
 
@@ -70,11 +61,9 @@ public class AddEvent extends AppCompatActivity {
         button=findViewById(R.id.button);
 
         //Progress dialog
-        pd= new ProgressDialog(this);
-
+        progressDialog= new ProgressDialog(this);
         //firestore
-        db = FirebaseFirestore.getInstance();
-
+        firebaseFirestore = FirebaseFirestore.getInstance();
         //click button to upload data
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +73,6 @@ public class AddEvent extends AppCompatActivity {
                 String dateeventStr =DateEvent.getText().toString().trim();
                 String timeeventStr = EventTime.getText().toString().trim();
                 double Bedgetevent = Double.parseDouble(Bedget.getText().toString().trim());
-
 
                 // Convert date and time strings to Date objects
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
@@ -98,33 +86,38 @@ public class AddEvent extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Error parsing date or time", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                Timestamp timestampDate = new Timestamp(dateevent);
+                Timestamp timestampTime = new Timestamp(timeevent);
+
                 //fuction call to upload data
-                uploadData(event,new Timestamp(dateevent), new Timestamp(timeevent), Bedgetevent);
+                uploadData(event,timestampDate,timestampTime , Bedgetevent);
             }
 
             private void uploadData(String event, Timestamp dateevent, Timestamp timeevent, Double Bedgetevent) {
                 //set title of progress bar;
-                pd.setTitle("adding data to firestore");
+                progressDialog.setTitle("adding data to firestore");
                 //show progress bar when user click save button
-                pd.show();
+                progressDialog.show();
                 //random id for each data to be stored
-                String id = UUID.randomUUID().toString();
-
+               // String id = UUID.randomUUID().toString();
                 Map<String,Object> doc=new HashMap<>();
-                doc.put("id",id);//id of data
-                doc.put("event",event);
-                doc.put("dateevent",dateevent);
-                doc.put("timeevent",timeevent);
-                doc.put("Bedgetevent",Bedgetevent);
+               // doc.put("id",id);//id of data
+                doc.put("Nom d'événement",event);
+                doc.put("Date d'événement",dateevent);
+                doc.put("L'heure",timeevent);
+                doc.put("Bedget",Bedgetevent+" MAD");
 
                 //add this data
-                db.collection("evenements").document(id).set(doc)
+                firebaseFirestore.collection("evenements").document(event).set(doc)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 //called when data added successfully
-                                pd.dismiss();
+                                progressDialog.dismiss();
                                 Toast.makeText(AddEvent.this,"uploaded...",Toast.LENGTH_SHORT).show();
+                                Intent hometIntent = new Intent(getApplicationContext(), ListEvent.class);
+                                startActivity(hometIntent);
+                                finish();
 
                             }
                         })
@@ -132,7 +125,7 @@ public class AddEvent extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 //called if there is any error while uploading
-                                pd.dismiss();
+                                progressDialog.dismiss();
                                 //get and show error message
                                 Toast.makeText(AddEvent.this,e.getMessage(),Toast.LENGTH_SHORT).show();
 
@@ -141,11 +134,6 @@ public class AddEvent extends AppCompatActivity {
                         });
             }
         });
-
-
-
-
-
 
         bottomNavigationView=findViewById(R.id.bottom_nav);
 

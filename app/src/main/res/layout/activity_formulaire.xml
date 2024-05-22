@@ -20,11 +20,6 @@ tools:context=".formulaire">
         android:layout_height="?attr/actionBarSize"
         android:background="#88FFFFFF">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:tint="@color/black" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -86,7 +81,7 @@ tools:context=".formulaire">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NomEtPrenom"
                 android:layout_width="match_parent"
-                android:layout_height="46dp"
+                android:layout_height="61dp"
                 android:drawablePadding="5dp"
                 android:inputType="text" />
 

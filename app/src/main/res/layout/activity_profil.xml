@@ -9,20 +9,23 @@ android:orientation="vertical"
 tools:context=".Profil">
 
 
-<com.google.android.material.appbar.AppBarLayout
-    android:id="@+id/appBar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="Profil"
-        app:titleCentered="true" />
-</com.google.android.material.appbar.AppBarLayout>
+        android:background="#65FFFFFF">
+
+        <TextView
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:text="Profil"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginHorizontal="150dp" />
+    </com.google.android.material.appbar.MaterialToolbar>
+
 
     <ImageView
         android:layout_width="match_parent"
@@ -90,7 +93,7 @@ tools:context=".Profil">
         android:layout_alignParentBottom="true"
         app:menu="@menu/buttom_menu"
         tools:ignore="MissingConstraints"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="90dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="605dp">
 

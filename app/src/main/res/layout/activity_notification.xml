@@ -20,12 +20,7 @@ tools:context=".notification">
         android:layout_height="?attr/actionBarSize"
         android:background="#34FFFFFF">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/imageback"
-            app:tint="@color/black" />
+
 
         <TextView
             android:layout_width="wrap_content"
