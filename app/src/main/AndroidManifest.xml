@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Evenement_App"
         tools:targetApi="31">
         <activity
+            android:name=".AddEvent"
+            android:exported="false" />
+        <activity
             android:name=".ListEvent"
             android:exported="false" />
         <activity
@@ -48,7 +51,7 @@
             android:name=".SplashScreen"
             android:exported="false" />
         <activity
-            android:name=".AddEvent"
+            android:name=".task"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -58,6 +61,9 @@
             android:exported="false" />
         <activity
             android:name=".Accueil"
+            android:exported="false" />
+        <activity
+            android:name=".event_list"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

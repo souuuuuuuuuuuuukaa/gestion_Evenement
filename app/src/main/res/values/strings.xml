@@ -21,4 +21,9 @@
     <string name="formulaire">Formulaire</string>
     <string name="depenses">depenses</string>
     <string name="list">List d\'evenements</string>
+    <string name="new_task">New Task</string>
+    <string name="tasks">Tasks</string>
+    <string name="save">Save</string>
+    <string name="selected_image_desc">Selected Image</string>
+    <string name="select_image_desc">Select an image to upload</string>
 </resources>

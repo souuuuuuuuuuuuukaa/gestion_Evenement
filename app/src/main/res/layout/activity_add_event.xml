@@ -41,11 +41,31 @@
         <ImageView
             android:id="@+id/logo"
             android:layout_width="match_parent"
-            android:layout_height="245dp"
+            android:layout_height="100dp"
             android:contentDescription="@string/desription"
             android:scaleX="1.8"
             android:scaleY="1.5"
             app:srcCompat="@drawable/ajouterevent" />
+
+
+
+        <ImageView
+            android:id="@+id/select_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/select_image_desc"
+            android:src="@drawable/ic_add_image"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <ImageView
+            android:id="@+id/selected_image_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/selected_image_desc"
+            android:visibility="gone" />
 
 
         <com.google.android.material.textfield.TextInputLayout
