@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -60,10 +61,16 @@
             android:name=".Menu"
             android:exported="false" />
         <activity
-            android:name=".Accueil"
-            android:exported="false" />
+            android:name=".EventDetails"
+            android:exported="false"/>
+        <activity
+            android:name=".Email"
+            android:exported="false"/>
         <activity
             android:name=".event_list"
+            android:exported="false" />
+        <activity
+            android:name=".Accueil"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

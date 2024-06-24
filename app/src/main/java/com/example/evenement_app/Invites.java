@@ -1,4 +1,7 @@
+
 package com.example.evenement_app;
+
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -74,21 +78,66 @@ public class Invites extends AppCompatActivity {
         });
     }
 
-    private void showData() {
-        db.collection("invites")
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful() && task.getResult() != null) {
-                        for (DocumentSnapshot doc : task.getResult()) {
-                            Model model = new Model(doc.getString("id"), doc.getString("invite"));
-                            modelList.add(model);
-                        }
-                        adapter = new CustomAdapter(Invites.this, modelList);
-                        mrecyclerView.setAdapter(adapter);
-                    } else {
-                        Toast.makeText(Invites.this, "Failed to load data", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(e -> Toast.makeText(Invites.this, e.getMessage(), Toast.LENGTH_SHORT).show());
-    }
+    /*  private void showData() {
+         db.collection("invites")
+                 .get()
+                 .addOnCompleteListener(task -> {
+                     if (task.isSuccessful() && task.getResult() != null) {
+                         for (DocumentSnapshot doc : task.getResult()) {
+                             Model model = new Model(doc.getString("id"), doc.getString("invite"));
+                             modelList.add(model);
+                         }
+                         adapter = new CustomAdapter(Invites.this, modelList);
+                         mrecyclerView.setAdapter(adapter);
+                     } else {
+                         Toast.makeText(Invites.this, "Failed to load data", Toast.LENGTH_SHORT).show();
+                     }
+                 })
+                 .addOnFailureListener(e -> Toast.makeText(Invites.this, e.getMessage(), Toast.LENGTH_SHORT).show());
+     }
+ }
+    private void showData(String eventId) {
+         db.collection("evenements").document(eventId).collection("invites")
+                 .get()
+                 .addOnCompleteListener(task -> {
+                     if (task.isSuccessful() && task.getResult() != null) {
+                         modelList.clear();
+                         for (DocumentSnapshot doc : task.getResult()) {
+                             Model model = new Model(doc.getString("id"), doc.getString("invite"));
+                             modelList.add(model);
+                         }
+                         adapter = new CustomAdapter(Invites.this, modelList);
+                         mrecyclerView.setAdapter(adapter);
+                     } else {
+                         Toast.makeText(Invites.this, "Erreur lors de la récupération des invités", Toast.LENGTH_SHORT).show();
+                     }
+                 })
+                 .addOnFailureListener(e -> {
+                     Toast.makeText(Invites.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                 });
+     }
+ }*/
+  private void showData() {
+      db.collection("invites")
+              .get()
+              .addOnCompleteListener(task -> {
+                  if (task.isSuccessful() && task.getResult() != null) {
+                      for (DocumentSnapshot doc : task.getResult()) {
+                          Log.d(TAG, "Document: " + doc.getData());
+                          Model model = new Model(doc.getString("id"), doc.getString("invite"));
+                          modelList.add(model);
+                      }
+                      // Set the adapter only after data is loaded
+                      adapter = new CustomAdapter(Invites.this, modelList);
+                      mrecyclerView.setAdapter(adapter);
+                  } else {
+                      Log.d(TAG, "Task failed or no result");
+                      Toast.makeText(Invites.this, "Failed to load data", Toast.LENGTH_SHORT).show();
+                  }
+              })
+              .addOnFailureListener(e -> {
+                  Log.d(TAG, "Error: " + e.getMessage());
+                  Toast.makeText(Invites.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+              });
+  }
 }

@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    app:cardCornerRadius="6dp"
+    android:elevation="6dp"
+    app:cardUseCompatPadding="true">
+
+    <TextView
+        android:id="@+id/invite"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="80dp"
+        android:drawableStart="@drawable/baseline_adore"
+        android:drawableLeft="@drawable/baseline_adore"
+        android:text="  Soukaina Battah"
+        android:textSize="20sp" />
+
+
+</androidx.cardview.widget.CardView>
+
+
+
+
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
@@ -13,11 +41,11 @@
     <TextView
         android:id="@+id/invite"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="97dp"
         android:layout_marginTop="80dp"
         android:drawableLeft="@drawable/user"
         android:text="Soukaina Battah"
         android:textSize="20sp" />
 
 
-</androidx.cardview.widget.CardView>
+</androidx.cardview.widget.CardView>-->

@@ -11,7 +11,11 @@ public class Event {
         private String name;
         private Date date;
         private Date heure;
+        private String Id;
         private String budget;
+        private String imageUrl;
+
+
 
     public String getName() {
         return name;
@@ -50,6 +54,22 @@ public class Event {
         this.date = date;
         this.heure = heure;
         this.budget = budget;
+    }
+
+    public Event(String name, Date date, Date heure, String id, String budget) {
+        this.name = name;
+        this.date = date;
+        this.heure = heure;
+        Id = id;
+        this.budget = budget;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
     }
 
     @Override

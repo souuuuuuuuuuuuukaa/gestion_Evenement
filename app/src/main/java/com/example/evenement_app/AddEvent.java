@@ -150,9 +150,12 @@ public class AddEvent extends AppCompatActivity {
                                 .addOnSuccessListener(uri -> {
                                     // Image download URL obtained
                                     String imageUrl = uri.toString();
+                                    String eventId = generateEventId(eventName);
+
 
                                     // Prepare data to be uploaded to Firestore
                                     Map<String, Object> eventData = new HashMap<>();
+                                    eventData.put("id", eventId);
                                     eventData.put("Nom d'événement", eventName);
                                     eventData.put("Date d'événement", dateEvent);
                                     eventData.put("L'heure", eventTime);
@@ -187,9 +190,14 @@ public class AddEvent extends AppCompatActivity {
                         progressDialog.dismiss();
                         Toast.makeText(AddEvent.this, "Failed to upload image: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     });
+
+
+
         } else {
             // If no image is selected, upload event data without image URL
+            String eventId = generateEventId(eventName);
             Map<String, Object> eventData = new HashMap<>();
+            eventData.put("id", eventId);
             eventData.put("Nom d'événement", eventName);
             eventData.put("Date d'événement", dateEvent);
             eventData.put("L'heure", eventTime);
@@ -212,5 +220,20 @@ public class AddEvent extends AppCompatActivity {
                         Toast.makeText(AddEvent.this, "Failed to upload event data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     });
         }
+    }
+
+    private String generateEventId(String eventName) {
+        // Générer un identifiant unique pour l'événement dans Firestore
+        String uniqueId = UUID.randomUUID().toString(); // Génère un UUID aléatoire
+
+        // Concaténer le nom de l'événement avec l'UUID
+        String eventId = eventName.replaceAll("\\s+", "") + "_" + uniqueId;
+
+        // Limiter la longueur de l'ID si nécessaire (Firebase recommande moins de 1500 caractères)
+        if (eventId.length() > 1500) {
+            eventId = eventId.substring(0, 1500);
+        }
+
+        return eventId;
     }
 }
