@@ -264,9 +264,12 @@ public class Email extends AppCompatActivity {
         import android.widget.EditText;
         import android.widget.Toast;
 
+        import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class Email extends AppCompatActivity {
     EditText sujet, content, email;
     Button button;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -289,6 +292,39 @@ public class Email extends AppCompatActivity {
                     sendemail(subject, content1, email1);
                 }
             }
+        });
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        bottomNavigationView.setSelectedItemId(R.id.nav_ajouter_event);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_ajouter_event) {
+                Intent hometIntent = new Intent(getApplicationContext(), AddEvent.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            } else if (itemId == R.id.nav_profil) {
+                Intent hometIntent = new Intent(getApplicationContext(), Profil.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            } else if (itemId == R.id.nav_home) {
+                Intent hometIntent = new Intent(getApplicationContext(), Accueil.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            } else if (itemId == R.id.nav_Budget) {
+                Intent hometIntent = new Intent(getApplicationContext(), Budget1.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            } else if (itemId == R.id.nav_Menu_y) {
+                Intent hometIntent = new Intent(getApplicationContext(), Menu.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            }
+            return false;
         });
     }
 
