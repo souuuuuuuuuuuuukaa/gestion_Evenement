@@ -1,22 +1,18 @@
-
 package com.example.evenement_app;
-
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -26,11 +22,9 @@ import java.util.List;
 
 public class Invites extends AppCompatActivity {
 
-    private BottomNavigationView bottomNavigationView;
-    private List<Model> modelList = new ArrayList<>();
-    private RecyclerView mrecyclerView;
-    private CustomAdapter adapter;
     private FirebaseFirestore db;
+    private ListView listViewEvents;
+    private TextView textViewInviteDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,103 +35,59 @@ public class Invites extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         // Initialize views
-        mrecyclerView = findViewById(R.id.recycler_view);
-        mrecyclerView.setHasFixedSize(true);
-        mrecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        listViewEvents = findViewById(R.id.listViewEvents);
+        textViewInviteDetails = findViewById(R.id.textViewInviteDetails);
 
-        bottomNavigationView = findViewById(R.id.bottom_nav);
-        setupBottomNavigationView();
+        // Retrieve event names from Firestore collection "evenements"
+        db.collection("evenements").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    List<String> eventNames = new ArrayList<>();
+                    for (DocumentSnapshot document : task.getResult()) {
+                        eventNames.add(document.getId()); // Use document ID as event name
+                    }
+                    // Set up ArrayAdapter for the ListView
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(Invites.this, android.R.layout.simple_list_item_1, eventNames);
+                    listViewEvents.setAdapter(adapter);
 
-        // Load data from Firestore
-        showData();
-    }
-
-    private void setupBottomNavigationView() {
-        bottomNavigationView.setSelectedItemId(R.id.nav_Menu_y);
-
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            Intent intent = null;
-            int itemId = item.getItemId();
-            if (itemId == R.id.nav_ajouter_event) {
-                intent = new Intent(getApplicationContext(), AddEvent.class);
-            } else if (itemId == R.id.nav_profil) {
-                intent = new Intent(getApplicationContext(), Profil.class);
-            } else if (itemId == R.id.nav_home) {
-                intent = new Intent(getApplicationContext(), Accueil.class);
-            } else if (itemId == R.id.nav_Budget) {
-                intent = new Intent(getApplicationContext(), Budget1.class);
-            } else if (itemId == R.id.nav_Menu_y) {
-                intent = new Intent(getApplicationContext(), Menu.class);
+                    // Handle click on an event
+                    listViewEvents.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            String eventName = (String) parent.getItemAtPosition(position);
+                            displayInviteDetails(eventName); // Display invite details for selected event
+                        }
+                    });
+                } else {
+                    Log.d("TAG", "Error getting documents: ", task.getException());
+                    Toast.makeText(Invites.this, "Error fetching events", Toast.LENGTH_SHORT).show();
+                }
             }
-            if (intent != null) {
-                startActivity(intent);
-                finish();
-                return true;
-            }
-            return false;
         });
     }
 
-    /*  private void showData() {
-         db.collection("invites")
-                 .get()
-                 .addOnCompleteListener(task -> {
-                     if (task.isSuccessful() && task.getResult() != null) {
-                         for (DocumentSnapshot doc : task.getResult()) {
-                             Model model = new Model(doc.getString("id"), doc.getString("invite"));
-                             modelList.add(model);
-                         }
-                         adapter = new CustomAdapter(Invites.this, modelList);
-                         mrecyclerView.setAdapter(adapter);
-                     } else {
-                         Toast.makeText(Invites.this, "Failed to load data", Toast.LENGTH_SHORT).show();
-                     }
-                 })
-                 .addOnFailureListener(e -> Toast.makeText(Invites.this, e.getMessage(), Toast.LENGTH_SHORT).show());
-     }
- }
-    private void showData(String eventId) {
-         db.collection("evenements").document(eventId).collection("invites")
-                 .get()
-                 .addOnCompleteListener(task -> {
-                     if (task.isSuccessful() && task.getResult() != null) {
-                         modelList.clear();
-                         for (DocumentSnapshot doc : task.getResult()) {
-                             Model model = new Model(doc.getString("id"), doc.getString("invite"));
-                             modelList.add(model);
-                         }
-                         adapter = new CustomAdapter(Invites.this, modelList);
-                         mrecyclerView.setAdapter(adapter);
-                     } else {
-                         Toast.makeText(Invites.this, "Erreur lors de la récupération des invités", Toast.LENGTH_SHORT).show();
-                     }
-                 })
-                 .addOnFailureListener(e -> {
-                     Toast.makeText(Invites.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                 });
-     }
- }*/
-  private void showData() {
-      db.collection("invites")
-              .get()
-              .addOnCompleteListener(task -> {
-                  if (task.isSuccessful() && task.getResult() != null) {
-                      for (DocumentSnapshot doc : task.getResult()) {
-                          Log.d(TAG, "Document: " + doc.getData());
-                          Model model = new Model(doc.getString("id"), doc.getString("invite"));
-                          modelList.add(model);
-                      }
-                      // Set the adapter only after data is loaded
-                      adapter = new CustomAdapter(Invites.this, modelList);
-                      mrecyclerView.setAdapter(adapter);
-                  } else {
-                      Log.d(TAG, "Task failed or no result");
-                      Toast.makeText(Invites.this, "Failed to load data", Toast.LENGTH_SHORT).show();
-                  }
-              })
-              .addOnFailureListener(e -> {
-                  Log.d(TAG, "Error: " + e.getMessage());
-                  Toast.makeText(Invites.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-              });
-  }
+    // Display invite details for the selected event
+    private void displayInviteDetails(String eventName) {
+        db.collection("evenements").document(eventName).collection("invites").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    StringBuilder inviteDetails = new StringBuilder();
+                    for (DocumentSnapshot document : task.getResult()) {
+                        String nom = document.getString("nom");
+                        if (nom != null) {
+                            inviteDetails.append("Nom: ").append(nom).append("\n");
+                        }
+                        // Ajoutez d'autres champs d'invitation si nécessaire (email, etc.)
+                    }
+                    Log.d("TAG", "Invite details: " + inviteDetails.toString()); // Log pour le débogage
+                    textViewInviteDetails.setText(inviteDetails.toString()); // Met à jour le TextView avec les détails des invitations
+                } else {
+                    Log.d("TAG", "Error getting documents: ", task.getException());
+                    Toast.makeText(Invites.this, "Erreur lors de la récupération des invitations", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
 }

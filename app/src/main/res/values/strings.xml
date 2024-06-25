@@ -10,20 +10,21 @@
     <string name="recherche">Recherche</string>
     <string name="messages">Messages</string>
     <string name="notifications">Notifications</string>
-    <string name="invite">invite</string>
-    <string name="evenements">Evenements</string>
-    <string name="calendrier">calendrier</string>
+    <string name="invite">afficher des invites</string>
+    <string name="evenements">Ajouter une publication</string>
+    <string name="calendrier">Taches</string>
     <string name="logout">Logout</string>
     <string name="event_name">Event Name</string>
     <string name="cr_er">Créer</string>
     <string name="bedget">Bedget...</string>
     <string name="login">Login</string>
-    <string name="formulaire">Formulaire</string>
+    <string name="formulaire">ajouter des invites</string>
     <string name="depenses">depenses</string>
     <string name="list">List d\'evenements</string>
     <string name="new_task">New Task</string>
     <string name="tasks">Tasks</string>
     <string name="save">Save</string>
+    <string name="description">description</string>
     <string name="selected_image_desc">Selected Image</string>
     <string name="select_image_desc">Select an image to upload</string>
 </resources>

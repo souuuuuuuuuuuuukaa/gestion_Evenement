@@ -322,18 +322,10 @@ public class EventDetails extends AppCompatActivity {
         }
 
         // Boutons
-        Listpart = findViewById(R.id.ListEvent);
+
         invite = findViewById(R.id.addpersone);
 
-        Listpart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Liste participants", Toast.LENGTH_SHORT).show();
-                Intent hometIntent = new Intent(getApplicationContext(), Invites.class);
-                startActivity(hometIntent);
-                finish();
-            }
-        });
+
 
         invite.setOnClickListener(new View.OnClickListener() {
             @Override

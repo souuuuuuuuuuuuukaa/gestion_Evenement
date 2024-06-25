@@ -77,18 +77,7 @@ public class Menu extends AppCompatActivity {
                 finish();
                 return true;
                 }
-                if (itemId == R.id.Messages){
-                Intent hometIntent = new Intent(getApplicationContext(), message.class);
-                startActivity(hometIntent);
-                finish();
-                return true;
-                }
-                if (itemId == R.id.notification){
-                Intent hometIntent = new Intent(getApplicationContext(), notification.class);
-                startActivity(hometIntent);
-                finish();
-                return true;
-                }
+
                 if (itemId == R.id.invite){
                 Intent hometIntent = new Intent(getApplicationContext(), Invites.class);
                 startActivity(hometIntent);
@@ -96,7 +85,7 @@ public class Menu extends AppCompatActivity {
                 return true;
                 }
                 if (itemId == R.id.Evenements){
-                Intent hometIntent = new Intent(getApplicationContext(), formulaire.class);
+                Intent hometIntent = new Intent(getApplicationContext(), Ajouter_Acceuil.class);
                 startActivity(hometIntent);
                 finish();
                 return true;
