@@ -89,17 +89,6 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/ListEvent"
-            android:layout_width="155dp"
-            android:layout_height="60dp"
-            android:text="Liste participants"
-            android:textStyle="bold" />
-
-        <Space
-            android:layout_width="30dp"
-            android:layout_height="11dp" />
-
-        <Button
             android:id="@+id/addpersone"
             android:layout_width="155dp"
             android:layout_height="60dp"
@@ -109,6 +98,8 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
+        android:background="@color/white"
+
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:layout_alignParentBottom="true"

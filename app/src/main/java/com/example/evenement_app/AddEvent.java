@@ -29,6 +29,7 @@ public class AddEvent extends AppCompatActivity {
     private static final int REQUEST_IMAGE_PICK = 1;
 
     ProgressDialog progressDialog;
+    BottomNavigationView bottomNavigationView;
 
     TextInputEditText EventName, DateEvent, EventTime, Bedget;
     Button button;
@@ -39,7 +40,7 @@ public class AddEvent extends AppCompatActivity {
 
     Uri imageUri;
 
-    BottomNavigationView bottomNavigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,25 +87,34 @@ public class AddEvent extends AppCompatActivity {
         });
 
         bottomNavigationView = findViewById(R.id.bottom_nav);
-
         bottomNavigationView.setSelectedItemId(R.id.nav_ajouter_event);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.nav_ajouter_event) {
-                // Handle navigation item clicks
+                Intent hometIntent = new Intent(getApplicationContext(), AddEvent.class);
+                startActivity(hometIntent);
+                finish();
                 return true;
             } else if (itemId == R.id.nav_profil) {
-                // Handle navigation item clicks
+                Intent hometIntent = new Intent(getApplicationContext(), Profil.class);
+                startActivity(hometIntent);
+                finish();
                 return true;
             } else if (itemId == R.id.nav_home) {
-                // Handle navigation item clicks
+                Intent hometIntent = new Intent(getApplicationContext(), Accueil.class);
+                startActivity(hometIntent);
+                finish();
                 return true;
             } else if (itemId == R.id.nav_Budget) {
-                // Handle navigation item clicks
+                Intent hometIntent = new Intent(getApplicationContext(), Budget1.class);
+                startActivity(hometIntent);
+                finish();
                 return true;
             } else if (itemId == R.id.nav_Menu_y) {
-                // Handle navigation item clicks
+                Intent hometIntent = new Intent(getApplicationContext(), Menu.class);
+                startActivity(hometIntent);
+                finish();
                 return true;
             }
             return false;

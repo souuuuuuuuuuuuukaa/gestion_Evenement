@@ -4,7 +4,8 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
-tools:context=".Accueil">
+tools:context=".Accueil"
+    android:background="@color/white">
 <com.google.android.material.appbar.AppBarLayout
     android:id="@+id/appBar"
     android:layout_width="match_parent"
@@ -15,7 +16,7 @@ tools:context=".Accueil">
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#65FFFFFF">
+        android:background="@color/white">
 
 
         <TextView
@@ -38,14 +39,13 @@ tools:context=".Accueil">
     android:layout_marginBottom="0dp">
 
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"
-        android:clipToPadding="false"
         android:clipChildren="false"
+        android:clipToPadding="false"
+        android:padding="8dp"
         android:scrollbars="vertical" />
 
 
@@ -53,6 +53,8 @@ tools:context=".Accueil">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
+        android:background="@color/white"
+
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:layout_alignParentBottom="true"

@@ -1,5 +1,49 @@
 package com.example.evenement_app;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.TextView;
+
+import java.util.List;
+
+public class TaskAdapter extends ArrayAdapter<TaskItem> {
+    public TaskAdapter(Context context, List<TaskItem> tasks) {
+        super(context, 0, tasks);
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_task, parent, false);
+        }
+
+        TaskItem taskItem = getItem(position);
+
+        TextView taskTextView = convertView.findViewById(R.id.task_text);
+        CheckBox taskCheckBox = convertView.findViewById(R.id.task_checkbox);
+
+        taskTextView.setText(taskItem.getTaskText());
+        taskCheckBox.setChecked(taskItem.isChecked());
+
+        taskCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                taskItem.setChecked(isChecked);
+                // Optionally update Firestore or perform other actions
+            }
+        });
+
+        return convertView;
+    }
+}
+
+/*package com.example.evenement_app;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,4 +87,4 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             taskText = itemView.findViewById(R.id.task_text);
         }
     }
-}
+}*/

@@ -25,18 +25,15 @@
             android:textStyle="bold" />
     </com.google.android.material.appbar.MaterialToolbar>
 
-<!--
-    <ListView
-        android:id="@+id/listview"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:clipToPadding="false"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="8dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp" />
--->
+        android:layout_height="wrap_content"
+        android:queryHint="Rechercher un événement"
+        app:iconifiedByDefault="false"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
@@ -49,6 +46,8 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
+        android:background="@color/white"
+
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:layout_alignParentBottom="true"

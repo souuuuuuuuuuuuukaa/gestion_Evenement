@@ -5,7 +5,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context=".formulaire">
+tools:context=".formulaire"
+    android:background="@color/white">
 
 <com.google.android.material.appbar.AppBarLayout
     android:id="@+id/appBar"
@@ -18,7 +19,7 @@ tools:context=".formulaire">
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#88FFFFFF">
+        android:background="@color/white">
 
 
         <TextView
@@ -51,7 +52,7 @@ tools:context=".formulaire">
             android:layout_height="wrap_content"
             android:layout_marginVertical="50dp"
             android:minHeight="48dp"
-            android:text="ajouter invite"
+            android:text="Ajouter invite"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -117,7 +118,7 @@ tools:context=".formulaire">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/black"
-                android:text="ajouter" />
+                android:text="Ajouter" />
 
 
         </LinearLayout>
@@ -129,6 +130,8 @@ tools:context=".formulaire">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
+        android:background="@color/white"
+
         android:layout_width="match_parent"
         android:layout_height="78dp"
         android:layout_alignParentBottom="true"

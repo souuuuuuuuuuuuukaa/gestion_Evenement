@@ -1,4 +1,5 @@
 package com.example.evenement_app;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -25,6 +27,7 @@ public class Invites extends AppCompatActivity {
     private FirebaseFirestore db;
     private ListView listViewEvents;
     private TextView textViewInviteDetails;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,44 @@ public class Invites extends AppCompatActivity {
         // Initialize views
         listViewEvents = findViewById(R.id.listViewEvents);
         textViewInviteDetails = findViewById(R.id.textViewInviteDetails);
+        bottomNavigationView=findViewById(R.id.bottom_nav);
+
+        bottomNavigationView.setSelectedItemId(R.id.nav_Menu_y);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_ajouter_event) {
+                Intent hometIntent = new Intent(getApplicationContext(), AddEvent.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            } else if (itemId == R.id.nav_profil) {
+                Intent hometIntent = new Intent(getApplicationContext(),Profil.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            } else  if (itemId == R.id.nav_home) {
+                Intent hometIntent = new Intent(getApplicationContext(), Accueil.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            }
+            else if (itemId == R.id.nav_Budget) {
+                Intent hometIntent = new Intent(getApplicationContext(), Budget1.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            }
+            else if (itemId == R.id.nav_Menu_y) {
+                Intent hometIntent = new Intent(getApplicationContext(), Menu.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            }
+
+            return false;
+        });
+
 
         // Retrieve event names from Firestore collection "evenements"
         db.collection("evenements").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

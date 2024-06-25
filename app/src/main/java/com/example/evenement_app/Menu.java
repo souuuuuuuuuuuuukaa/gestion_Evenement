@@ -71,20 +71,31 @@ public class Menu extends AppCompatActivity {
                 finish();
                 return true;
                 }
-                if (itemId == R.id.recherche){
+                /*if (itemId == R.id.recherche){
                 Intent hometIntent = new Intent(getApplicationContext(), Recherches.class);
                 startActivity(hometIntent);
                 finish();
                 return true;
+                }*/
+                if (itemId == R.id.tache){
+                Intent hometIntent = new Intent(getApplicationContext(), task.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
                 }
-
+                /*if (itemId == R.id.notification){
+                Intent hometIntent = new Intent(getApplicationContext(), notification.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+                }*/
                 if (itemId == R.id.invite){
                 Intent hometIntent = new Intent(getApplicationContext(), Invites.class);
                 startActivity(hometIntent);
                 finish();
                 return true;
                 }
-                if (itemId == R.id.Evenements){
+                if (itemId == R.id.Ajouter_post){
                 Intent hometIntent = new Intent(getApplicationContext(), Ajouter_Acceuil.class);
                 startActivity(hometIntent);
                 finish();

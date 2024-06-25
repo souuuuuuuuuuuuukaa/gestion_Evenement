@@ -2,24 +2,82 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-        <ListView
-            android:id="@+id/listViewEvents"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/textViewInviteDetails"
-            android:dividerHeight="1dp" />
+            android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Invités"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginHorizontal="150dp" />
+        </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <FrameLayout
+            android:id="@+id/container_view"
+            android:layout_width="match_parent"
+            android:layout_height="455dp"
+            android:layout_above="@+id/textViewInviteDetails"
+            android:layout_below="@id/appBar"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp">
+
+                <ListView
+                    android:id="@+id/listViewEvents"
+                    android:layout_width="match_parent"
+                    android:layout_height="516dp"
+                    android:layout_above="@id/textViewInviteDetails"
+                    android:dividerHeight="1dp" />
+
+
+        </FrameLayout>
 
         <TextView
             android:id="@+id/textViewInviteDetails"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="209dp"
             android:layout_alignParentBottom="true"
+            android:layout_marginBottom="68dp"
             android:padding="30dp"
+            android:text="invites"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="invites"/>
+            android:textStyle="bold" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:background="@color/white"
+
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="140dp"
+            app:menu="@menu/buttom_menu"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="605dp"
+            >
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
 
 </RelativeLayout>

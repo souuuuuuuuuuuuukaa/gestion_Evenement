@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -42,6 +43,7 @@ public class Ajouter_Acceuil extends AppCompatActivity {
     Button publier;
     ImageView selectImageView, selectedImageView;
     Uri imageUri;
+    BottomNavigationView bottomNavigationView;
 
     FirebaseFirestore db;
 
@@ -60,6 +62,44 @@ public class Ajouter_Acceuil extends AppCompatActivity {
         pd.setMessage("Uploading...");
 
         db = FirebaseFirestore.getInstance();
+        bottomNavigationView=findViewById(R.id.bottom_nav);
+
+        bottomNavigationView.setSelectedItemId(R.id.nav_Menu_y);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_ajouter_event) {
+                Intent hometIntent = new Intent(getApplicationContext(), AddEvent.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            } else if (itemId == R.id.nav_profil) {
+                Intent hometIntent = new Intent(getApplicationContext(),Profil.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            } else  if (itemId == R.id.nav_home) {
+                Intent hometIntent = new Intent(getApplicationContext(), Accueil.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            }
+            else if (itemId == R.id.nav_Budget) {
+                Intent hometIntent = new Intent(getApplicationContext(), Budget1.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            }
+            else if (itemId == R.id.nav_Menu_y) {
+                Intent hometIntent = new Intent(getApplicationContext(), Menu.class);
+                startActivity(hometIntent);
+                finish();
+                return true;
+            }
+
+            return false;
+        });
+
 
         selectImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,5 +209,9 @@ public class Ajouter_Acceuil extends AppCompatActivity {
                     pd.dismiss(); // Dismiss progress dialog
                     Toast.makeText(Ajouter_Acceuil.this, "Failed to upload image: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
+
+
+
+
     }
 }

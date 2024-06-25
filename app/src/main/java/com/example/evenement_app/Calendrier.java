@@ -39,7 +39,7 @@ public class Calendrier extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendrier2);
 
-        taskEditText = findViewById(R.id.task);
+        /*taskEditText = findViewById(R.id.task);
         addTaskButton = findViewById(R.id.addtask);
         taskListView = findViewById(R.id.tasklist);
 
@@ -100,7 +100,7 @@ public class Calendrier extends AppCompatActivity {
 
         // Fetch tasks from Firestore
         fetchTasks();
-
+*/
         bottomNavigationView=findViewById(R.id.bottom_nav);
 
         bottomNavigationView.setSelectedItemId(R.id.nav_Menu_y);
@@ -138,7 +138,7 @@ public class Calendrier extends AppCompatActivity {
             return false;
         });
     }
-    private void fetchTasks() {
+    /*private void fetchTasks() {
         db.collection("tasks")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<com.google.firebase.firestore.QuerySnapshot>() {
@@ -163,5 +163,5 @@ public class Calendrier extends AppCompatActivity {
                         }
                     }
                 });
-    }
+    }*/
 }
