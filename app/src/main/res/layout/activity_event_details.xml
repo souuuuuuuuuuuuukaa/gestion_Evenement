@@ -35,14 +35,14 @@
         android:layout_width="336dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="170dp"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/event_image"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="185dp"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="16dp"
             android:scaleType="centerCrop" />
@@ -85,10 +85,19 @@
         android:layout_width="409dp"
         android:layout_height="107dp"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="600dp"
         android:gravity="center">
 
+        <Button
+            android:id="@+id/ListEvent"
+            android:layout_width="155dp"
+            android:layout_height="60dp"
+            android:text="Liste participants"
+            android:textStyle="bold" />
 
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="11dp" />
 
         <Button
             android:id="@+id/addpersone"
