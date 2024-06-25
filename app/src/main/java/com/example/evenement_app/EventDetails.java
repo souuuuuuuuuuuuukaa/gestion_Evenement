@@ -28,7 +28,7 @@ public class EventDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
         bottomNavigationView = findViewById(R.id.bottom_nav);
-        bottomNavigationView.setSelectedItemId(R.id.nav_ajouter_event);
+        bottomNavigationView.setSelectedItemId(R.id.nav_Menu_y);
 
         // Set bottom navigation item click listener
         bottomNavigationView.setOnItemSelectedListener(item -> {

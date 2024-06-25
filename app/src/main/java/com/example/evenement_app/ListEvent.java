@@ -403,7 +403,7 @@ public class ListEvent extends AppCompatActivity {
 
         // Initialize bottom navigation view
         bottomNavigationView = findViewById(R.id.bottom_nav);
-        bottomNavigationView.setSelectedItemId(R.id.nav_ajouter_event);
+        bottomNavigationView.setSelectedItemId(R.id.nav_Menu_y);
 
         // Set bottom navigation item click listener
         bottomNavigationView.setOnItemSelectedListener(item -> {

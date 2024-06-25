@@ -294,7 +294,7 @@ public class Email extends AppCompatActivity {
             }
         });
         bottomNavigationView = findViewById(R.id.bottom_nav);
-        bottomNavigationView.setSelectedItemId(R.id.nav_ajouter_event);
+        bottomNavigationView.setSelectedItemId(R.id.nav_Menu_y);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();

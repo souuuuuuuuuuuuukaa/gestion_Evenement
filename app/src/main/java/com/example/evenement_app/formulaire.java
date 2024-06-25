@@ -147,7 +147,7 @@ BottomNavigationView bottomNavigationView;
                                 if (task.isSuccessful()) {
                                     pd.dismiss();
                                     Toast.makeText(formulaire.this, "Invité ajouté avec succès à l'événement.", Toast.LENGTH_SHORT).show();
-                                    Intent homeIntent = new Intent(getApplicationContext(), AddEvent.class);
+                                    Intent homeIntent = new Intent(getApplicationContext(), Invites.class);
                                     startActivity(homeIntent);
                                     finish();
                                 } else {
