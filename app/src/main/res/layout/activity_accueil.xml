@@ -49,6 +49,7 @@ tools:context=".Accueil"
         android:scrollbars="vertical" />
 
 
+
 </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

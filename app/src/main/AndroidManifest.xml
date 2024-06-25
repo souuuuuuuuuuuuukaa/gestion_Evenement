@@ -22,10 +22,10 @@
             android:name=".AddEvent"
             android:exported="false" />
         <activity
-            android:name=".Accueil"
+            android:name=".Budget1"
             android:exported="false" />
         <activity
-            android:name=".Budget1"
+            android:name=".ListEvent"
             android:exported="false" />
         <activity
             android:name=".Calendrier"
@@ -73,7 +73,7 @@
             android:name=".formulaire"
             android:exported="false" />
         <activity
-            android:name=".ListEvent"
+            android:name=".Accueil"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
